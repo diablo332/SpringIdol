@@ -11,16 +11,17 @@ package kz.pnhz.springidol;
  */
 public class Instrumentalist implements Performer {
 
+    public Instrumentalist() {
+
+    }
+
     @Override
     public void perform() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print("Playing " + song + " : ");
+        instrument.play();
     }
 
     private String song;
-
-    public Instrumentalist() {
-        System.out.println("Playing " + song + " : ");
-    }
 
     public String getSong() {
         return song;
@@ -36,5 +37,4 @@ public class Instrumentalist implements Performer {
         this.instrument = instrument;
     }
 
-    
 }

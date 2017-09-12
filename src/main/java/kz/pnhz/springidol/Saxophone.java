@@ -9,8 +9,15 @@ package kz.pnhz.springidol;
  *
  * @author v.grebenschikov
  */
-public interface Instrument {
+public class Saxophone implements Instrument{
 
-    public void play();
+    public Saxophone() {
+    }
+
+    @Override
+    public void play() {
+        System.out.println("TOOT TOOT TOOT");
+    }
+    
     
 }

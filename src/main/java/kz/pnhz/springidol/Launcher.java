@@ -19,5 +19,7 @@ public class Launcher {
         Performer performer = (Performer) ctx.getBean("poeticDuke");
         performer.perform();
         Auditorium auditorium = (Auditorium) ctx.getBean("auditorium");
+        Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("kenny");
+        instrumentalist.perform();
     }
 }
