@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd"
+       default-init-method="turnOnLights"
+       default-destroy-method="turnOffLights">
+    <bean id = "sonnet29" class = "kz.pnhz.springidol.Sonnet29" />
+    
+    <bean id = "poeticDuke" class = "kz.pnhz.springidol.PoeticJuggler">
+        <constructor-arg value="15" />
+        <constructor-arg ref="sonnet29" />
+    </bean>
+    
+    <bean id="theStage"
+          class="kz.pnhz.springidol.Stage"
+          factory-method="getInstance" />
+    
+    <bean id = "ticket" class="kz.pnhz.springidol.Ticket" scope="prototype" />
+    
+    <bean id="auditorium"
+          class="kz.pnhz.springidol.Auditorium"
+          init-method="turnOnLights"
+          destroy-method="turnOffLights"/>
+</beans>
+
+<!--<bean id = "duke" class = "kz.pnhz.springidol.Junggler" /> -->
