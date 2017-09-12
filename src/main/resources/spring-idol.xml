@@ -47,6 +47,17 @@
     
     <bean id="saxophone" class="kz.pnhz.springidol.Saxophone">
     </bean>
+    
+    <bean id="hank"
+          class="kz.pnhz.springidol.OneManBand">
+        <property name="instruments">
+            <list>
+                <ref bean="guitar" />
+                <ref bean="cymbal" />
+                <ref bean="harmonica" />
+            </list>
+        </property>
+    </bean>
 </beans>
 
 <!--<bean id = "duke" class = "kz.pnhz.springidol.Junggler" /> -->
