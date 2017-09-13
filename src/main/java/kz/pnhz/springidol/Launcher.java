@@ -23,7 +23,10 @@ public class Launcher {
         Auditorium auditorium = (Auditorium) ctx.getBean("auditorium");
         Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("kenny");
         instrumentalist.perform();
-//        Performer hank = (Performer) ctx.getBean("hank");
-//        hank.perform();
+        Instrumentalist carl = (Instrumentalist) ctx.getBean("carl");
+        carl.perform();
+        
+        Performer hank = (Performer) ctx.getBean("hank");
+        hank.perform();
     }
 }
