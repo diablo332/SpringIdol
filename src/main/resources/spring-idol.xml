@@ -40,16 +40,30 @@
         </property>
     </bean>-->
     
+    <!--    <bean id="kenny"
+    class="performers.Instrumentalist" 
+    p:song = "#{'Jingle Bells'}"
+    p:instrument-ref = "saxophone" />-->
+    
     <bean id="kenny"
           class="performers.Instrumentalist" 
-          p:song = "Jingle Bells"
-          p:instrument-ref = "saxophone" />
+          p:song = "#{'Jingle Bells'}">    
+        <property name="instrument" value="#{saxophone}"/>
+    </bean>
+    
+    <bean id="carl"
+      class="performers.Instrumentalist" > 
+        <property name="song" value="#{kenny.song}" />
+        <property name="instrument" value="#{kenny.getInstrument()}"/>
+<!--        <property name="multiplier" value="#{T(java.lang.Math).PI}"/>
+        <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>-->
+    </bean>
     
     <bean id="saxophone" class="instruments.Saxophone">
     </bean>
     
     <!--<bean id="hank"
-          class="kz.pnhz.springidol.OneManBand">
+          class="performers.OneManBand">
         <property name="instruments">
             <list>
                 <ref bean="guitar" />
@@ -59,10 +73,50 @@
         </property>
     </bean>-->
     
+    <!--    <bean id="hank"
+          class="performers.OneManBand">
+        <property name="instruments">
+            <set>
+                <ref bean="guitar" />
+                <ref bean="cymbal" />
+                <ref bean="harmonica" />
+                <ref bean="harmonica" />
+            </set>
+        </property>
+    </bean>-->
+    
+    <!--    <bean id="hank"
+          class="performers.OneManBand">
+        <property name="instruments">
+            <map>
+                <entry key="GUITAR" value-ref="guitar" />
+                <entry key="CYMBAL" value-ref="cymbal" />
+                <entry key="HARMONICA" value-ref="harmonica" />
+            </map>
+        </property>
+    </bean>-->
+    
+    <bean id="hank"
+          class="performers.OneManBand">
+        <property name="instruments">
+            <props>
+                <prop key="GUITAR"> STRUM STRUM STRUM</prop>
+                <prop key="CYMBAL"> CRASH CRASH CRASH</prop>
+                <prop key="HARMONICA"> HUM HUM HUM</prop>
+            </props>
+        </property>
+        <property name="someNonNullProperty">
+            <null/>
+        </property>
+    </bean>
+    
     <bean id="guitar" class="instruments.Guitar">
     </bean>
     
     <bean id="cymbal" class="instruments.Cymbal">
+    </bean>
+    
+    <bean id="harmonica" class="instruments.Harmonica">
     </bean>
 </beans>
 
