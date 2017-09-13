@@ -5,6 +5,8 @@
  */
 package kz.pnhz.springidol;
 
+import performers.Performer;
+import performers.Instrumentalist;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -21,5 +23,7 @@ public class Launcher {
         Auditorium auditorium = (Auditorium) ctx.getBean("auditorium");
         Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("kenny");
         instrumentalist.perform();
+//        Performer hank = (Performer) ctx.getBean("hank");
+//        hank.perform();
     }
 }

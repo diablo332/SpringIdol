@@ -5,6 +5,8 @@
  */
 package kz.pnhz.springidol;
 
+import performers.Performer;
+import instruments.Instrument;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -13,6 +15,8 @@ import java.util.Iterator;
  * @author v.grebenschikov
  */
 public class OneManBand implements Performer {
+
+    private Collection<Instrument> instruments;
 
     public OneManBand() {
     }
@@ -24,10 +28,8 @@ public class OneManBand implements Performer {
         }
     }
 
-    private Collection<Instrument> instruments;
-
     public void setInstruments(Collection<Instrument> instruments) {
         this.instruments = instruments;
     }
-    
+
 }

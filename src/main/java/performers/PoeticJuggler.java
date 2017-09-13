@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kz.pnhz.springidol;
+package performers;
+
+import kz.pnhz.springidol.Poem;
+import performers.Junggler;
 
 /**
  *

@@ -12,7 +12,7 @@
        default-destroy-method="turnOffLights">
     <bean id = "sonnet29" class = "kz.pnhz.springidol.Sonnet29" />
     
-    <bean id = "poeticDuke" class = "kz.pnhz.springidol.PoeticJuggler">
+    <bean id = "poeticDuke" class = "performers.PoeticJuggler">
         <constructor-arg value="15" />
         <!--<constructor-arg ref="sonnet29" />-->
         <constructor-arg>
@@ -41,14 +41,14 @@
     </bean>-->
     
     <bean id="kenny"
-          class="kz.pnhz.springidol.Instrumentalist" 
+          class="performers.Instrumentalist" 
           p:song = "Jingle Bells"
           p:instrument-ref = "saxophone" />
     
-    <bean id="saxophone" class="kz.pnhz.springidol.Saxophone">
+    <bean id="saxophone" class="instruments.Saxophone">
     </bean>
     
-    <bean id="hank"
+    <!--<bean id="hank"
           class="kz.pnhz.springidol.OneManBand">
         <property name="instruments">
             <list>
@@ -57,6 +57,12 @@
                 <ref bean="harmonica" />
             </list>
         </property>
+    </bean>-->
+    
+    <bean id="guitar" class="instruments.Guitar">
+    </bean>
+    
+    <bean id="cymbal" class="instruments.Cymbal">
     </bean>
 </beans>
 

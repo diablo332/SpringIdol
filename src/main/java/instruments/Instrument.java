@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kz.pnhz.springidol;
+package instruments;
 
 /**
  *
  * @author v.grebenschikov
  */
-public interface Performer {
+public interface Instrument {
 
-    void perform();
+    public void play();
+    
 }
