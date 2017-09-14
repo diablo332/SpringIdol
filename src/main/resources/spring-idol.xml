@@ -54,6 +54,10 @@
     <bean id="carl"
       class="performers.Instrumentalist" > 
         <property name="song" value="#{kenny.song}" />
+        <!--<property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>-->
+        <!--        <property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>-->
+<!--        <property name="instrument"
+    value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>-->
         <property name="instrument" value="#{kenny.getInstrument()}"/>
 <!--        <property name="multiplier" value="#{T(java.lang.Math).PI}"/>
         <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>-->
