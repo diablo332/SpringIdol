@@ -45,21 +45,39 @@
     p:song = "#{'Jingle Bells'}"
     p:instrument-ref = "saxophone" />-->
     
-    <bean id="kenny"
+    <!--    <bean id="kenny"
           class="performers.Instrumentalist" 
           p:song = "#{'Jingle Bells'}">    
+        <property name="instrument" value="#{saxophone}"/>
+    </bean>-->
+    
+    <bean id="kenny"
+          parent="baseSaxophonist"/>    
+    
+    <bean id="david"
+          parent="baseSaxophonist"/>    
+    
+    <bean id="franc"
+          parent="baseSaxophonist">
+        <property name="song" value="Mary had a little lamb" />
+    </bean>
+    
+    <bean id="baseSaxophonist" 
+          class="performers.Instrumentalist" 
+          abstract="true" 
+          p:song = "#{'Jingle Bells'}">
         <property name="instrument" value="#{saxophone}"/>
     </bean>
     
     <bean id="carl"
-      class="performers.Instrumentalist" > 
+          class="performers.Instrumentalist" > 
         <property name="song" value="#{kenny.song}" />
         <!--<property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>-->
         <!--        <property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>-->
-<!--        <property name="instrument"
-    value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>-->
+        <!--        <property name="instrument"
+        value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>-->
         <property name="instrument" value="#{kenny.getInstrument()}"/>
-<!--        <property name="multiplier" value="#{T(java.lang.Math).PI}"/>
+        <!--        <property name="multiplier" value="#{T(java.lang.Math).PI}"/>
         <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>-->
     </bean>
     
@@ -121,6 +139,35 @@
     </bean>
     
     <bean id="harmonica" class="instruments.Harmonica">
+    </bean>
+    
+    <bean id="basePerformer" abstract="true">
+        <property name="song" value="Somewhere Over the Rainbow" />
+    </bean>
+    
+    <bean id="taylor" class="performers.Vocalist" parent="basePerformer">
+    </bean>
+    
+    <bean id="stevie" class="performers.Instrumentalist" parent="basePerformer">
+        <property name="instrument" ref="guitar"/>
+    </bean>
+    
+    <!--    <bean id="stevie" class="performers.Instrumentalist" parent="basePerformer">
+        <lookup-method name="getInstrument" bean="guitar" />
+    </bean>-->
+    
+    <bean id="harry" class="performers.Magical">
+        <property name="magicBox" ref="magicBox" />
+        <property name="magicWords" value="Bippity boppity boo" />
+    </bean>
+    
+    <bean id="magicBox" class="kz.pnhz.springidol.MagicBoxImpl">
+        <replaced-method
+            name="getContents"
+            replacer="tigerReplacer" />
+    </bean>
+    
+    <bean id="tigerReplacer" class="kz.pnhz.springidol.TigerReplacer">
     </bean>
 </beans>
 
