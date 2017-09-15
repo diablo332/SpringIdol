@@ -18,15 +18,23 @@ public class Launcher {
     public static void Launch() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/spring-idol.xml");
         
-        Performer performer = (Performer) ctx.getBean("poeticDuke");
-        performer.perform();
-        Auditorium auditorium = (Auditorium) ctx.getBean("auditorium");
-        Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("kenny");
-        instrumentalist.perform();
-        Instrumentalist carl = (Instrumentalist) ctx.getBean("carl");
-        carl.perform();
+//        Performer performer = (Performer) ctx.getBean("poeticDuke");
+//        performer.perform();
+//        Auditorium auditorium = (Auditorium) ctx.getBean("auditorium");
+//        Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("kenny");
+//        instrumentalist.perform();
+//        Instrumentalist instrumentalist2 = (Instrumentalist) ctx.getBean("david");
+//        instrumentalist2.perform();
+        Instrumentalist instrumentalist3 = (Instrumentalist) ctx.getBean("stevie");
+        instrumentalist3.perform();
         
-        Performer hank = (Performer) ctx.getBean("hank");
-        hank.perform();
+//        Instrumentalist carl = (Instrumentalist) ctx.getBean("carl");
+//        carl.perform();
+//        
+//        Performer hank = (Performer) ctx.getBean("hank");
+//        hank.perform();
+//        
+//        Performer magical = (Performer) ctx.getBean("harry");
+//        magical.perform();
     }
 }
