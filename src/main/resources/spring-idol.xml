@@ -81,6 +81,14 @@
         <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>-->
     </bean>
     
+    <bean id="pianist"
+          class="performers.Instrumentalist" abstract="true"> 
+        <property name="song" value="Chopstiks" />
+        <property name="instrument">
+            <bean class="instruments.Piano"/>
+        </property>
+    </bean>
+    
     <bean id="saxophone" class="instruments.Saxophone">
     </bean>
     
@@ -152,6 +160,11 @@
         <property name="instrument" ref="guitar"/>
     </bean>
     
+    <bean id="stevie2" class="performers.AbsInstrumentalist" >
+        <lookup-method name="getInstrument" bean="guitar" />
+        <property name="song" value="Greensleeves" />
+    </bean>
+    
     <!--    <bean id="stevie" class="performers.Instrumentalist" parent="basePerformer">
         <lookup-method name="getInstrument" bean="guitar" />
     </bean>-->
@@ -168,6 +181,34 @@
     </bean>
     
     <bean id="tigerReplacer" class="kz.pnhz.springidol.TigerReplacer">
+    </bean>
+    
+<!--    <bean id="infoPhone" class="propeditor.PhoneNumber">
+        <constructor-arg value="888" /> 
+        <constructor-arg value="555" />
+        <constructor-arg value="1212" />
+    </bean>-->
+    
+<!--    <bean id="contract" class="propeditor.Contract">
+        <prproperty name="phoneNumber" value="888-555-1212" />
+    </bean>
+    
+    <bean
+        class="org.springframework.beans.factory.config.СustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="propeditor.PhoneNumber">
+                    <bean id="phoneEditor"
+                          class="propeditor.PhoneEditor">
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>-->
+    
+    <bean class="postProcessor.Fuddifier" />
+    <bean id="bags" class="postProcessor.Rabbit">
+        <property name="description" value="That rascelly rabbit!" />
     </bean>
 </beans>
 
