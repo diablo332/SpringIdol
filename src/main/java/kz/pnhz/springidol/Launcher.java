@@ -5,21 +5,29 @@
  */
 package kz.pnhz.springidol;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Locale;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import performers.Performer;
 import performers.Instrumentalist;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import performers.AbsInstrumentalist;
+import postProcessor.BeanCounter;
 import postProcessor.Fuddifier;
 import postProcessor.Rabbit;
+import org.apache.commons.dbcp.BasicDataSource;
+import foo.Course;
+import foo.CourseFullEvent;
+import sheduling.CronTriggerBean;
 
 /**
  *
  * @author v.grebenschikov
  */
 public class Launcher {
-    public static void Launch() {
+    public static void Launch() throws SQLException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/spring-idol.xml");
         
         Performer performer = (Performer) ctx.getBean("poeticDuke");
@@ -33,8 +41,22 @@ public class Launcher {
         instrumentalist3.perform();
         AbsInstrumentalist instrumentalist4 = (AbsInstrumentalist) ctx.getBean("stevie2");
         instrumentalist4.perform();
-        Rabbit rabbit = (Rabbit) ctx.getBean("bags");
-        rabbit.printDescription();
+//        Rabbit rabbit = (Rabbit) ctx.getBean("bags");
+//        rabbit.printDescription();
+        BeanCounter beanCounter = (BeanCounter) ctx.getBean("beanCounter");
+        BasicDataSource ds = (BasicDataSource) ctx.getBean("dataSource");
+//        ds.getConnection();
+        
+        Locale locale = Locale.GERMANY;
+        String text = ctx.getMessage("computer", new Object[0], locale);
+        System.out.println(text);
+        
+        Course course = (Course) ctx.getBean("course");
+//        CourseFullEvent ce = new CourseFullEvent(this, course);
+//        ctx.publishEvent(ce);
+        
+        CronTriggerBean cronTrigger = (CronTriggerBean) ctx.getBean("cronTriggerBean");
+        System.out.println("cronTrigger.getBeanName(): " + cronTrigger.getBeanName());
 //        Instrumentalist carl = (Instrumentalist) ctx.getBean("carl");
 //        carl.perform();
 //        

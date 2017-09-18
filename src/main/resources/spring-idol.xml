@@ -206,10 +206,44 @@
         </property>
     </bean>-->
     
-    <bean class="postProcessor.Fuddifier" />
+<!--    <bean class="postProcessor.Fuddifier" />
     <bean id="bags" class="postProcessor.Rabbit">
         <property name="description" value="That rascelly rabbit!" />
+    </bean>-->
+    
+    <bean id="beanCounter" class="postProcessor.BeanCounter" />
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${driver-class}" />
+        <property name="url" value="${ds.url}" />
+        <property name="username" value="${ds.username}" />
+        <property name="password" value="${ds.password}" />
+        <property name="validationQuery" value="select 1" />
+        <property name="maxWait" value="20000" />
     </bean>
+    
+    <!--    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>jdbc.properties</value>
+                <value>security.properties</value>
+                <value>application.properties</value>
+            </list>
+        </property>
+    </bean>-->
+    
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename">
+            <value>trainingtext</value>
+        </property>
+    </bean>
+    
+    <bean id="course" class="foo.Course" />
+    <bean id="refreshListener" class="foo.RefreshListener" />
+    
+    <bean id="cronTriggerBean" class="sheduling.CronTriggerBean" />
 </beans>
 
 <!--<bean id = "duke" class = "kz.pnhz.springidol.Junggler" /> -->
