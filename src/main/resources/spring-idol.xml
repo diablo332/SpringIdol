@@ -13,7 +13,10 @@
        default-init-method="turnOnLights"
        default-destroy-method="turnOffLights"
        >
-    <context:annotation-config />
+    <!--<context:annotation-config />-->
+    <context:component-scan base-package="kz.pnhz.springidol">
+        
+    </context:component-scan>
     
     <bean id = "sonnet29" class = "kz.pnhz.springidol.Sonnet29" />
     
