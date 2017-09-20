@@ -4,12 +4,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:lang="http://www.springframework.org/schema/lang"
        
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd"
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+            http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.0.xsd"
        default-init-method="turnOnLights"
-       default-destroy-method="turnOffLights">
+       default-destroy-method="turnOffLights"
+       >
+    <context:annotation-config />
+    
     <bean id = "sonnet29" class = "kz.pnhz.springidol.Sonnet29" />
     
     <bean id = "poeticDuke" class = "performers.PoeticJuggler">
@@ -66,7 +71,7 @@
           class="performers.Instrumentalist" 
           abstract="true" 
           p:song = "#{'Jingle Bells'}">
-        <property name="instrument" value="#{saxophone}"/>
+<!--        <property name="instrument" value="#{saxophone}"/>-->
     </bean>
     
     <bean id="carl"
@@ -89,7 +94,8 @@
         </property>
     </bean>
     
-    <bean id="saxophone" class="instruments.Saxophone">
+<!--    <bean id="saxophone" class="instruments.Saxophone" primary="true">-->
+    <bean id="saxophone" class="instruments.Saxophone" primary="true">
     </bean>
     
     <!--<bean id="hank"
@@ -146,6 +152,7 @@
     <bean id="cymbal" class="instruments.Cymbal">
     </bean>
     
+<!--    <bean id="harmonica" class="instruments.Harmonica" autowire-candidate="false">-->
     <bean id="harmonica" class="instruments.Harmonica">
     </bean>
     
@@ -206,7 +213,7 @@
         </property>
     </bean>-->
     
-<!--    <bean class="postProcessor.Fuddifier" />
+    <!--    <bean class="postProcessor.Fuddifier" />
     <bean id="bags" class="postProcessor.Rabbit">
         <property name="description" value="That rascelly rabbit!" />
     </bean>-->
@@ -244,6 +251,31 @@
     <bean id="refreshListener" class="foo.RefreshListener" />
     
     <bean id="cronTriggerBean" class="sheduling.CronTriggerBean" />
+
+    <!--    <bean id="coconut" class="scripting.Coconut">
+        <property name="lime" ref="lime"/>
+    </bean>    -->
+    
+    <!--    <lang:jruby id="lime"
+    script-source="classpath:scripting/Lime.rb"
+    script-interfaces="scripting.Lime" />-->
+    <!--    <lang:groovy id="lime"
+    script-source="classpath:scripting/Lime.groovy" />-->
+    
+<!--    <bean id="lime" class="kz.pnhz.scripting.LimeImpl" />
+    
+    <lang:groovy id="coconut"
+                 script-source="classpath:Coconut.groovy">
+        <lang:property name="lime" ref="lime" />
+    </lang:groovy>-->
+    
+    <bean id="kenny2" class="performers.Instrumentalist"
+          autowire="byType">
+        <property name="song" value="Jingle Bells" />
+    </bean>
+    
+    <bean id="duke" class="performers.PoeticJuggler" autowire="constructor"/>
+    
 </beans>
 
 <!--<bean id = "duke" class = "kz.pnhz.springidol.Junggler" /> -->

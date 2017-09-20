@@ -20,6 +20,7 @@ import postProcessor.Rabbit;
 import org.apache.commons.dbcp.BasicDataSource;
 import foo.Course;
 import foo.CourseFullEvent;
+import performers.PoeticJuggler;
 import sheduling.CronTriggerBean;
 
 /**
@@ -57,6 +58,11 @@ public class Launcher {
         
         CronTriggerBean cronTrigger = (CronTriggerBean) ctx.getBean("cronTriggerBean");
         System.out.println("cronTrigger.getBeanName(): " + cronTrigger.getBeanName());
+        
+        Instrumentalist kenny2 = (Instrumentalist) ctx.getBean("kenny2");
+        instrumentalist.perform();
+        Performer juggler = (Performer) ctx.getBean("duke");
+        juggler.perform();
 //        Instrumentalist carl = (Instrumentalist) ctx.getBean("carl");
 //        carl.perform();
 //        

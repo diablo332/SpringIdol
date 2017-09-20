@@ -9,6 +9,7 @@ package instruments;
  *
  * @author v.grebenschikov
  */
+@StringedInstrument
 public class Guitar implements Instrument {
 
     public Guitar() {
