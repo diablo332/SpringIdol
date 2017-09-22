@@ -6,16 +6,20 @@
 package performers;
 
 import instruments.Instrument;
-import instruments.StringedInstrument;
+import instruments.Instrument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import performers.Performer;
+import instruments.StringedInstrument;
 
 /**
  *
  * @author v.grebenschikov
  */
-@Configurable("pianist")
+//@Configurable("pianist")
+@Component("eddie")
 public class Instrumentalist implements Performer {
 
     public Instrumentalist() {
@@ -40,7 +44,7 @@ public class Instrumentalist implements Performer {
     
 //    Необязательное автоматическое связывание. Можно избавиться от get set методов
     @Autowired(required = false) 
-    @StringedInstrument
+//    @StringedInstrument
     private Instrument instrument;
 
     public Instrument getInstrument() {

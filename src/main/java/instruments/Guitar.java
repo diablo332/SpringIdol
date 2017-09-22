@@ -5,11 +5,14 @@
  */
 package instruments;
 
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author v.grebenschikov
  */
 @StringedInstrument
+@Component
 public class Guitar implements Instrument {
 
     public Guitar() {

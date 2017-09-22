@@ -20,6 +20,7 @@ import postProcessor.Rabbit;
 import org.apache.commons.dbcp.BasicDataSource;
 import foo.Course;
 import foo.CourseFullEvent;
+import instruments.Instrument;
 import performers.PoeticJuggler;
 import sheduling.CronTriggerBean;
 
@@ -30,39 +31,49 @@ import sheduling.CronTriggerBean;
 public class Launcher {
     public static void Launch() throws SQLException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/spring-idol.xml");
+        SpringIdolConfig sic = new SpringIdolConfig();
+        sic.duke15().perform();
+        sic.eddie().perform();
         
-        Performer performer = (Performer) ctx.getBean("poeticDuke");
-        performer.perform();
-        Auditorium auditorium = (Auditorium) ctx.getBean("auditorium");
-        Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("kenny");
-        instrumentalist.perform();
-        Instrumentalist instrumentalist2 = (Instrumentalist) ctx.getBean("david");
-        instrumentalist2.perform();
-        Instrumentalist instrumentalist3 = (Instrumentalist) ctx.getBean("stevie");
-        instrumentalist3.perform();
-        AbsInstrumentalist instrumentalist4 = (AbsInstrumentalist) ctx.getBean("stevie2");
-        instrumentalist4.perform();
+//        Performer duke = (Performer) ctx.getBean("duke");
+//        duke.perform();
+        
+//        Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("eddie");
+//        instrumentalist.perform();
+////        Performer performer = (Performer) ctx.getBean("poeticDuke");
+////        performer.perform();
+////        Auditorium auditorium = (Auditorium) ctx.getBean("auditorium");
+////        Instrumentalist instrumentalist = (Instrumentalist) ctx.getBean("kenny");
+////        instrumentalist.perform();
+////        Instrumentalist instrumentalist2 = (Instrumentalist) ctx.getBean("david");
+////        instrumentalist2.perform();
+////        Instrumentalist instrumentalist3 = (Instrumentalist) ctx.getBean("stevie");
+////        instrumentalist3.perform();
+////        AbsInstrumentalist instrumentalist4 = (AbsInstrumentalist) ctx.getBean("stevie2");
+////        instrumentalist4.perform();
+
 //        Rabbit rabbit = (Rabbit) ctx.getBean("bags");
 //        rabbit.printDescription();
-        BeanCounter beanCounter = (BeanCounter) ctx.getBean("beanCounter");
-        BasicDataSource ds = (BasicDataSource) ctx.getBean("dataSource");
+
+////        BeanCounter beanCounter = (BeanCounter) ctx.getBean("beanCounter");
+////        BasicDataSource ds = (BasicDataSource) ctx.getBean("dataSource");
 //        ds.getConnection();
         
-        Locale locale = Locale.GERMANY;
-        String text = ctx.getMessage("computer", new Object[0], locale);
-        System.out.println(text);
-        
-        Course course = (Course) ctx.getBean("course");
+////        Locale locale = Locale.GERMANY;
+////        String text = ctx.getMessage("computer", new Object[0], locale);
+////        System.out.println(text);
+////        
+////        Course course = (Course) ctx.getBean("course");
 //        CourseFullEvent ce = new CourseFullEvent(this, course);
 //        ctx.publishEvent(ce);
         
-        CronTriggerBean cronTrigger = (CronTriggerBean) ctx.getBean("cronTriggerBean");
-        System.out.println("cronTrigger.getBeanName(): " + cronTrigger.getBeanName());
-        
-        Instrumentalist kenny2 = (Instrumentalist) ctx.getBean("kenny2");
-        instrumentalist.perform();
-        Performer juggler = (Performer) ctx.getBean("duke");
-        juggler.perform();
+////        CronTriggerBean cronTrigger = (CronTriggerBean) ctx.getBean("cronTriggerBean");
+////        System.out.println("cronTrigger.getBeanName(): " + cronTrigger.getBeanName());
+////        
+////        Instrumentalist kenny2 = (Instrumentalist) ctx.getBean("kenny2");
+////        instrumentalist.perform();
+////        Performer juggler = (Performer) ctx.getBean("duke");
+////        juggler.perform();
 //        Instrumentalist carl = (Instrumentalist) ctx.getBean("carl");
 //        carl.perform();
 //        

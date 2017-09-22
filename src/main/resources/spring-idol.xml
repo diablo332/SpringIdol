@@ -13,16 +13,28 @@
        default-init-method="turnOnLights"
        default-destroy-method="turnOffLights"
        >
+    <!--<context:component-scan base-package="performers"/>-->
     <!--<context:annotation-config />-->
-    <context:component-scan base-package="kz.pnhz.springidol">
-        
+    <context:component-scan base-package="performers">
+<!--        <context:include-filter type="assignable" 
+                                expression="instruments.Instrument"/>
+        <context:include-filter type="annotation" expression="instruments.StringedInstrument"/>-->
     </context:component-scan>
     
-    <bean id = "sonnet29" class = "kz.pnhz.springidol.Sonnet29" />
+    <context:component-scan base-package="instruments">
+        <context:include-filter type="annotation" expression="instruments.StringedInstrument"/>
+    </context:component-scan>
+    
+<!--        <context:include-filter type="assignable" 
+                                expression="instruments.Instrument"/>
+        <context:include-filter type="annotation" expression="instruments.StringedInstrument"/>-->
+        
+    
+<!--    <bean id = "sonnet29" class = "kz.pnhz.springidol.Sonnet29" />
     
     <bean id = "poeticDuke" class = "performers.PoeticJuggler">
         <constructor-arg value="15" />
-        <!--<constructor-arg ref="sonnet29" />-->
+        <constructor-arg ref="sonnet29" />
         <constructor-arg>
             <bean class="kz.pnhz.springidol.Sonnet29"/>
         </constructor-arg>
@@ -38,7 +50,7 @@
           class="kz.pnhz.springidol.Auditorium"
           init-method="turnOnLights"
           destroy-method="turnOffLights"/>
-    
+    -->
     <!--<bean id="kenny"
       class="kz.pnhz.springidol.Instrumentalist" > 
     <property name="song" value="Jingle Bells" /> -->
@@ -58,7 +70,7 @@
           p:song = "#{'Jingle Bells'}">    
         <property name="instrument" value="#{saxophone}"/>
     </bean>-->
-    
+<!--    
     <bean id="kenny"
           parent="baseSaxophonist"/>    
     
@@ -68,25 +80,25 @@
     <bean id="franc"
           parent="baseSaxophonist">
         <property name="song" value="Mary had a little lamb" />
-    </bean>
+    </bean>-->
     
-    <bean id="baseSaxophonist" 
+<!--    <bean id="baseSaxophonist" 
           class="performers.Instrumentalist" 
           abstract="true" 
           p:song = "#{'Jingle Bells'}">
-<!--        <property name="instrument" value="#{saxophone}"/>-->
-    </bean>
+        //<property name="instrument" value="#{saxophone}"/>
+    </bean>-->
     
-    <bean id="carl"
+<!--    <bean id="carl"
           class="performers.Instrumentalist" > 
         <property name="song" value="#{kenny.song}" />
-        <!--<property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>-->
-        <!--        <property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>-->
-        <!--        <property name="instrument"
-        value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>-->
+        <property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>
+                <property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>
+                <property name="instrument"
+        value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>
         <property name="instrument" value="#{kenny.getInstrument()}"/>
-        <!--        <property name="multiplier" value="#{T(java.lang.Math).PI}"/>
-        <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>-->
+                <property name="multiplier" value="#{T(java.lang.Math).PI}"/>
+        <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>
     </bean>
     
     <bean id="pianist"
@@ -97,10 +109,10 @@
         </property>
     </bean>
     
-<!--    <bean id="saxophone" class="instruments.Saxophone" primary="true">-->
+    <bean id="saxophone" class="instruments.Saxophone" primary="true">
     <bean id="saxophone" class="instruments.Saxophone" primary="true">
     </bean>
-    
+    -->
     <!--<bean id="hank"
           class="performers.OneManBand">
         <property name="instruments">
@@ -135,7 +147,7 @@
         </property>
     </bean>-->
     
-    <bean id="hank"
+<!--    <bean id="hank"
           class="performers.OneManBand">
         <property name="instruments">
             <props>
@@ -155,7 +167,7 @@
     <bean id="cymbal" class="instruments.Cymbal">
     </bean>
     
-<!--    <bean id="harmonica" class="instruments.Harmonica" autowire-candidate="false">-->
+    <bean id="harmonica" class="instruments.Harmonica" autowire-candidate="false">
     <bean id="harmonica" class="instruments.Harmonica">
     </bean>
     
@@ -173,13 +185,13 @@
     <bean id="stevie2" class="performers.AbsInstrumentalist" >
         <lookup-method name="getInstrument" bean="guitar" />
         <property name="song" value="Greensleeves" />
-    </bean>
+    </bean>-->
     
     <!--    <bean id="stevie" class="performers.Instrumentalist" parent="basePerformer">
         <lookup-method name="getInstrument" bean="guitar" />
     </bean>-->
     
-    <bean id="harry" class="performers.Magical">
+<!--    <bean id="harry" class="performers.Magical">
         <property name="magicBox" ref="magicBox" />
         <property name="magicWords" value="Bippity boppity boo" />
     </bean>
@@ -191,7 +203,7 @@
     </bean>
     
     <bean id="tigerReplacer" class="kz.pnhz.springidol.TigerReplacer">
-    </bean>
+    </bean>-->
     
 <!--    <bean id="infoPhone" class="propeditor.PhoneNumber">
         <constructor-arg value="888" /> 
@@ -220,7 +232,7 @@
     <bean id="bags" class="postProcessor.Rabbit">
         <property name="description" value="That rascelly rabbit!" />
     </bean>-->
-    
+<!--    
     <bean id="beanCounter" class="postProcessor.BeanCounter" />
     
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -230,7 +242,7 @@
         <property name="password" value="${ds.password}" />
         <property name="validationQuery" value="select 1" />
         <property name="maxWait" value="20000" />
-    </bean>
+    </bean>-->
     
     <!--    <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -243,7 +255,7 @@
         </property>
     </bean>-->
     
-    <bean id="messageSource"
+<!--    <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename">
             <value>trainingtext</value>
@@ -253,7 +265,7 @@
     <bean id="course" class="foo.Course" />
     <bean id="refreshListener" class="foo.RefreshListener" />
     
-    <bean id="cronTriggerBean" class="sheduling.CronTriggerBean" />
+    <bean id="cronTriggerBean" class="sheduling.CronTriggerBean" />-->
 
     <!--    <bean id="coconut" class="scripting.Coconut">
         <property name="lime" ref="lime"/>
@@ -272,12 +284,12 @@
         <lang:property name="lime" ref="lime" />
     </lang:groovy>-->
     
-    <bean id="kenny2" class="performers.Instrumentalist"
+<!--    <bean id="kenny2" class="performers.Instrumentalist"
           autowire="byType">
         <property name="song" value="Jingle Bells" />
     </bean>
     
-    <bean id="duke" class="performers.PoeticJuggler" autowire="constructor"/>
+    <bean id="duke" class="performers.PoeticJuggler" autowire="constructor"/>-->
     
 </beans>
 
